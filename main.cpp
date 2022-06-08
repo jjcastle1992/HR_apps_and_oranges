@@ -96,13 +96,18 @@ int main()
 
     vector<string> apples_temp = split(rtrim(apples_temp_temp));
     if ((s >= 1 && s <= 1e5) && (t >= 1 && t <= 1e5) && (a >= 1 && a <= 1e5) && (b >= 1 && b <= 1e5)
-        && (m >= 1 && m <= 1e5) && (n >= 1 && n <= 1e5)) {
+        && (m >= 1 && m <= 1e5) && (n >= 1 && n <= 1e5) && (a < s < t < b)) {
         vector<int> apples(m);
 
         for (int i = 0; i < m; i++) {
             int apples_item = stoi(apples_temp[i]);
 
-            apples[i] = apples_item;
+            if (apples_item >= -1e5 && apples_item <= 1e5) {
+                apples[i] = apples_item;
+            }
+            else {
+                apples_item = 0;
+            }
         }
 
         string oranges_temp_temp;
@@ -114,13 +119,16 @@ int main()
 
         for (int i = 0; i < n; i++) {
             int oranges_item = stoi(oranges_temp[i]);
-
-            oranges[i] = oranges_item;
+            if (oranges_item >= -1e5 && oranges_item <= 1e5) {
+                oranges[i] = oranges_item;
+            }
+            else {
+                oranges_item = 0;
+            }
         }
 
         countApplesAndOranges(s, t, a, b, apples, oranges);
     }
-
 
     return 0;
 }
