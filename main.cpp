@@ -95,29 +95,32 @@ int main()
     getline(cin, apples_temp_temp);
 
     vector<string> apples_temp = split(rtrim(apples_temp_temp));
+    if ((s >= 1 && s <= 1e5) && (t >= 1 && t <= 1e5) && (a >= 1 && a <= 1e5) && (b >= 1 && b <= 1e5)
+        && (m >= 1 && m <= 1e5) && (n >= 1 && n <= 1e5)) {
+        vector<int> apples(m);
 
-    vector<int> apples(m);
+        for (int i = 0; i < m; i++) {
+            int apples_item = stoi(apples_temp[i]);
 
-    for (int i = 0; i < m; i++) {
-        int apples_item = stoi(apples_temp[i]);
+            apples[i] = apples_item;
+        }
 
-        apples[i] = apples_item;
+        string oranges_temp_temp;
+        getline(cin, oranges_temp_temp);
+
+        vector<string> oranges_temp = split(rtrim(oranges_temp_temp));
+
+        vector<int> oranges(n);
+
+        for (int i = 0; i < n; i++) {
+            int oranges_item = stoi(oranges_temp[i]);
+
+            oranges[i] = oranges_item;
+        }
+
+        countApplesAndOranges(s, t, a, b, apples, oranges);
     }
 
-    string oranges_temp_temp;
-    getline(cin, oranges_temp_temp);
-
-    vector<string> oranges_temp = split(rtrim(oranges_temp_temp));
-
-    vector<int> oranges(n);
-
-    for (int i = 0; i < n; i++) {
-        int oranges_item = stoi(oranges_temp[i]);
-
-        oranges[i] = oranges_item;
-    }
-
-    countApplesAndOranges(s, t, a, b, apples, oranges);
 
     return 0;
 }
