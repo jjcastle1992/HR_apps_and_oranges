@@ -19,7 +19,47 @@ vector<string> split(const string &);
  */
 
 void countApplesAndOranges(int s, int t, int a, int b, vector<int> apples, vector<int> oranges) {
+    int leftHouseEdge = s;
+    int rightHouseEdge = t;
+    int appleTreePos = a;
+    int orangeTreePos = b;
+    int orangePosition = 0;
+    int applePosition = 0;
+    int appleHits = 0;
+    int orangeHits = 0;
+    //Determine where Apple Tree is (left "bound" - though apples can fall left of the tree)
+    //Determine where Orange Tree is (right "bound" - though oranges can fall to the right of the tree
+    //Determine left edge of house && right edge of house
+    
+    //check positions of Apples relative to tree
+    for (int i = 0; i < apples.size(); i++) {
+        int appleDistance = 0;
+        appleDistance = apples [i];
+        applePosition = appleTreePos - appleDistance;
 
+        //If position of apple  greater/equal to left edge or less than/equal to right edge, it hits.
+        //check position of apple and if it falls in the range, increment apple hit counter
+        if (applePosition >= leftHouseEdge || applePosition <= rightHouseEdge) {
+            appleHits++;
+        }
+    }
+
+    //check positions of oranges relative to tree
+    for (int i = 0; i < oranges.size(); i++) {
+        int orangeDistance = 0;
+        orangeDistance = oranges [i];
+        orangePosition = orangeTreePos - orangeDistance;
+
+        //If position of orange is greater/equal to left edge or less than/equal to right edge, it hits.
+        //check position of orange if it falls in the range, increment orange hit counter
+        if (orangePosition >= leftHouseEdge || orangePosition <= rightHouseEdge) {
+            orangeHits++;
+        }
+    }
+
+    //print #apple hits then # orange hits each on their own line.
+    std::cout << appleHits << std::endl;
+    std::cout << orangeHits << std::endl;
 }
 
 int main()
