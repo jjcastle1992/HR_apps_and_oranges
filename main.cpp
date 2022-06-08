@@ -35,7 +35,7 @@ void countApplesAndOranges(int s, int t, int a, int b, vector<int> apples, vecto
     for (int i = 0; i < apples.size(); i++) {
         int appleDistance = 0;
         appleDistance = apples [i];
-        applePosition = appleTreePos - appleDistance;
+        applePosition = appleTreePos + appleDistance;
 
         //If position of apple  greater/equal to left edge or less than/equal to right edge, it hits.
         //check position of apple and if it falls in the range, increment apple hit counter
@@ -48,7 +48,7 @@ void countApplesAndOranges(int s, int t, int a, int b, vector<int> apples, vecto
     for (int i = 0; i < oranges.size(); i++) {
         int orangeDistance = 0;
         orangeDistance = oranges [i];
-        orangePosition = orangeTreePos - orangeDistance;
+        orangePosition = orangeTreePos + orangeDistance;
 
         //If position of orange is greater/equal to left edge or less than/equal to right edge, it hits.
         //check position of orange if it falls in the range, increment orange hit counter
